@@ -15,7 +15,7 @@ tree_id = 4
 p = pprint_jhs.PrettyPrinter(width=15)
 
 # generate the tree
-t = getTree(tree_id)
+t = getTree(tree_id, 6, 6, 4, 4)
 
 # print it out
 p.pprint(t)

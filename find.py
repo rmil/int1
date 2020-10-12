@@ -41,6 +41,7 @@ def tree_search(problem):
     fringe.append(make_node(problem.init, problem))
     while len(fringe) != 0:
         cur_node = fringe.pop()
+        print("checking node: " + cur_node.state)
         if problem.is_goal(cur_node.state):
             return get_solution(cur_node)
         expand(cur_node, problem)
