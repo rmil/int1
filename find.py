@@ -3,6 +3,23 @@ import queue
 a_graph = {'A': ['B', 'C'], 'B': ['D'], 'C':[], 'D':[]}
 
 class problem:
+    """
+    A class to represent a problem representation
+
+    Attributes
+    ----------
+    init: str
+        The initial state
+    goal: str
+        The goal state
+    graph: list
+        All possible permutations
+    
+    Methods
+    -------
+    is_goal(state):
+        Checks if the state satisfies some specific requirement for the problem
+    """
     def __init__(self, init_node, goal_node, graph):
         self.init = init_node
         self.goal = goal_node
@@ -21,6 +38,22 @@ def tree_search(problem, search_type):
         search_type (str): Either "depth" or "breadth"
     """
     class node:
+        """
+        A class representing a state with metadata
+
+        Attributes
+        ----------
+        state: str
+            Represents current information about the state.
+        parent_node: node
+            The precursor node.
+        action:
+            Possible reachable states, that are possible from current state.
+        path_cost:
+            The cost of the path.
+        depth:
+            It's current depth in the tree/graph.
+        """
         def __init__(self, state, parent_node, action, path_cost, depth):
             self.state = state
             self.parent_node = parent_node
