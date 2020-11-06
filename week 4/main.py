@@ -4,8 +4,6 @@ class arc():
     def __init__(self, dst, cost):
         self.dst = dst
         self.cost = cost
-    
-    
 
 class castle():
     def __init__(self, name, neighbours, heuristic):
@@ -16,7 +14,9 @@ class castle():
         # priority queue needs < to be implemented
     def __lt__(self, other):
         return (self.name < other.name)
-
+    
+    def __str__(self):
+        return self.name
 
 
 A = castle('A', {}, 0)
@@ -41,6 +41,7 @@ H.neighbours = {E: 5, G: 5, J: 5}
 I.neighbours = {F: 5, J: 5}
 J.neighbours = {G: 5, H: 5, I: 5}
 
+
 # Breadth-first search, converted to Uniform cost search
 def ucs(start, goal):
     visited = []
@@ -61,4 +62,7 @@ def ucs(start, goal):
                     fringe.put((new_cost, new_node))
     return (visited)
 
-print(ucs(A, J))
+route = ucs(A, J)[1]
+
+for place in route:
+    print(place)
